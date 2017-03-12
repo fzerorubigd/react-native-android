@@ -84,6 +84,7 @@ RUN ls /usr/local/android-sdk-linux/tools
 ENV ANDROID_HOME /usr/local/android-sdk-linux
 ENV ANDROID_SDK /usr/local/android-sdk-linux
 ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
+RUN chmod -R 777 /usr/local/android-sdk-linux
 
 # Install Android SDK components
 
