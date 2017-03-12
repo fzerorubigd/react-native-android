@@ -12,3 +12,5 @@ export HOME=/home/user
 chown $USER_ID:$USER_ID $HOME
 
 exec /usr/local/bin/gosu user "$@"
+
+mongod
