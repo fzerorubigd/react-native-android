@@ -1,6 +1,7 @@
-FROM openjdk:8
+FROM picoded/ubuntu-base
 
-MAINTAINER ADAM Bene <adambene@adambene.com>
+MAINTAINER Youenn Pennarun <youenn.pennarun@gmail.com>
+
 
 # add a non-root user
 
@@ -14,6 +15,25 @@ RUN curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/dow
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+# Install JAVA8.
+RUN apt-get update && \
+	apt-get install -y openjdk-8-jdk && \
+	apt-get install -y ant && \
+	apt-get clean;
+	
+# Fix certificate issues, found as of 
+# https://bugs.launchpad.net/ubuntu/+source/ca-certificates-java/+bug/983302
+RUN apt-get update && \
+	apt-get install ca-certificates-java && \
+	apt-get clean && \
+	update-ca-certificates -f;
+
+# Setup JAVA_HOME, this is useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
+
+# END install JAVA8
 
 # Install MongoDB.
 RUN \
