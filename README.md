@@ -1,11 +1,11 @@
-## adambene/react-native-android
+## nolitsou/react-native-android
 Docker image for building ReactNative APKs. Latest Java + Node.js + Android SDK.
 
 ## GitHub
-[github.com/adambene/react-native-android](https://github.com/adambene/react-native-android)
+[github.com/youennPennarun/react-native-android](https://github.com/youennPennarun/react-native-android)
 
 ## DockerHub
-[hub.docker.com/r/adambene/react-native-android](https://hub.docker.com/r/adambene/react-native-android/)
+[hub.docker.com/r/nolitsou/docker-rn-android/](https://hub.docker.com/r/nolitsou/docker-rn-android/)
 
 ## Example
 
@@ -20,7 +20,7 @@ docker run -t -i \
   -v ~/.gradle/:/home/user/.gradle/ \
   -w /workspace \
   -e LOCAL_USER_ID=`id -u $USER` \
-  adambene/react-native-android \
+  nolitsou/react-native-android \
   /bin/sh -c "cd android && ./gradlew --stacktrace assembleRelease"
 ```
 
@@ -29,8 +29,8 @@ Build a React Native project for Android with `npm`.
 
 ```json
   "scripts": {
-    "build-with-docker-debug": "docker run -t -i -v $(pwd):/workspace -v ~/.gradle/:/home/user/.gradle/ -w /workspace -e LOCAL_USER_ID=`id -u $USER` adambene/react-native-android /bin/sh -c \"cd android && ./gradlew --stacktrace assembleDebug\"",
-    "build-with-docker-release": "docker run -t -i -v $(pwd):/workspace -v ~/.gradle/:/home/user/.gradle/ -w /workspace -e LOCAL_USER_ID=`id -u $USER` adambene/react-native-android /bin/sh -c \"cd android && ./gradlew --stacktrace assembleRelease\""
+    "build-with-docker-debug": "docker run -t -i -v $(pwd):/workspace -v ~/.gradle/:/home/user/.gradle/ -w /workspace -e LOCAL_USER_ID=`id -u $USER` nolitsou/react-native-android /bin/sh -c \"cd android && ./gradlew --stacktrace assembleDebug\"",
+    "build-with-docker-release": "docker run -t -i -v $(pwd):/workspace -v ~/.gradle/:/home/user/.gradle/ -w /workspace -e LOCAL_USER_ID=`id -u $USER` nolitsou/react-native-android /bin/sh -c \"cd android && ./gradlew --stacktrace assembleRelease\""
   },
 ```
 
