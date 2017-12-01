@@ -94,7 +94,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get clean
 
 # Download and untar SDK
-ENV ANDROID_SDK_URL https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
+ENV ANDROID_SDK_URL https://dl.google.com/android/repository/tools_r26.0.1-linux.zip
 RUN curl -L "${ANDROID_SDK_URL}" -o /tmp/android-sdk-linux.zip
 RUN unzip /tmp/android-sdk-linux.zip -d /usr/local/
 RUN rm /tmp/android-sdk-linux.zip
@@ -109,7 +109,7 @@ RUN chmod -R 777 /usr/local/android-sdk-linux
 
 # Install Android SDK components
 
-ENV ANDROID_COMPONENTS platform-tools,build-tools-23.0.1,build-tools-23.0.3,build-tools-25.0.0,build-tools-25.0.2,android-23,android-24,android-25
+ENV ANDROID_COMPONENTS platform-tools,build-tools-23.0.1,build-tools-23.0.3,build-tools-25.0.0,build-tools-25.0.2,build-tools-26.0.1,android-23,android-24,android-25,android-26
 ENV GOOGLE_COMPONENTS extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services,extra-google-gcm
 
 RUN echo y | android update sdk --no-ui --all --filter "${ANDROID_COMPONENTS}" ; \
